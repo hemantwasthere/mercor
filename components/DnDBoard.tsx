@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
-import DraggableElement from "../DraggableTaskCard";
+import DraggableTaskCard from "./DraggableTaskCard";
 
-import { TaskCardPanelProps, TaskCardProps, TaskPanelProps } from "@/types";
+import { TaskCardPanelProps, TaskCardProps } from "@/types";
 import { KanbanBoardData } from "@/utils/data";
 
-const DragAndDropBoard = () => {
+const DnDBoard = () => {
     const KanbanPanels = useMemo(() => ["To Do", "On Progress", "Done"], []);
 
     const [KanbanTask, setKanbanTask] =
@@ -55,14 +55,12 @@ const DragAndDropBoard = () => {
         [KanbanTask, addToList]
     );
     return (
-        <div className="px-4 md:px-6 lg:px-9    w-full   ">
+        <div className="px-4 md:px-6 lg:px-9 w-full">
             <DragDropContext onDragEnd={onDragEnd}>
-                <div className="grid  lg:grid-cols-3   w-full gap-6">
+                <div className="grid lg:grid-cols-3 w-full gap-6">
                     {KanbanPanels.map((panel, index) => {
-                        // console.log(panel);
-                        // console.log(KanbanBoardData[panel]);
                         return (
-                            <DraggableElement
+                            <DraggableTaskCard
                                 panel={KanbanBoardData[panel]}
                                 key={`${panel}-${index}`}
                                 panelKey={panel}
@@ -75,4 +73,4 @@ const DragAndDropBoard = () => {
     );
 };
 
-export default DragAndDropBoard;
+export default DnDBoard;

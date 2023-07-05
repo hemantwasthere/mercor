@@ -9,13 +9,9 @@ interface SidebarProps {
     setMobile: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
-    mobile,
-    open,
-    setMobile,
-    setOpen,
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ mobile, open, setMobile, setOpen }) => {
     const [isActiveProject, setActiveProject] = useState<string>("mobile");
+
     return (
         <div
             className={` min-h-screen  overflow-y-scroll overflow-x-hidden border-r border-borderColor lg:overflow-auto bg-white w-[100%]  text-gray-900 `}
@@ -77,8 +73,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                             <li
                                 key={`${item.name}-${index}`}
                                 className={` transition-all ease-in-out duration-300 ${isActiveProject === item.link
-                                        ? "bg-hoverBg bg-opacity-10 text-Heading "
-                                        : "text-Typography"
+                                    ? "bg-hoverBg bg-opacity-10 text-Heading "
+                                    : "text-Typography"
                                     } flex hover:bg-hoverBg hover:bg-opacity-10 hover:text-Heading hover:font-semibold relative   px-2 py-2 cursor-pointer  rounded-md  items-center gap-3`}
                             >
                                 <p
@@ -87,8 +83,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                                 ></p>
                                 <p
                                     className={`${isActiveProject === item.link
-                                            ? " font-semibold "
-                                            : " font-medium "
+                                        ? " font-semibold "
+                                        : " font-medium "
                                         }text-md     `}
                                 >
                                     {item.name}

@@ -7,12 +7,7 @@ interface NavbarProps {
     mobile: boolean;
     setMobile: React.Dispatch<SetStateAction<boolean>>;
 }
-const Navbar: React.FC<NavbarProps> = ({
-    open,
-    setOpen,
-    mobile,
-    setMobile,
-}) => {
+const Navbar: React.FC<NavbarProps> = ({ open, setOpen, mobile, setMobile }) => {
     return (
         <div className="w-full relative flex items-center  justify-between border-borderColor border-b px-4 md:px-6 lg:px-9  py-[1.25rem]  ">
             {/* search bar  */}
